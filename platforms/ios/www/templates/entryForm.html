@@ -1,0 +1,61 @@
+<ion-modal-view>
+<ion-header-bar class="bar-secondary">
+  <h1 class="title">Neuer Eintrag</h1>
+  <button class="button button-clear" ng-click="closeNewEntry()">&times;</button>
+</ion-header-bar>
+
+<ion-content>
+  <form class="list new-entry" ng-submit="createEntry(entry)">
+    <label class="item item-input">
+        <span class="input-label micon micon-newentry-date">
+          <!-- Datum -->
+        </span>
+        <span class="date-overlay">{{entry.date | date:'dd.MM.yyyy'}}</span>
+        <input class="date-input" type="date" ng-model="entry.date"></input>
+    </label>
+    <label class="item item-input">
+        <span class="input-label micon micon-newentry-time">
+          <!-- Zeit -->
+        </span>
+        <ionic-timepicker input-obj="timePickerObject">
+          <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+          <input type="text" ng-model="entry.time" ng-focus="blurInput($event)"></input>
+        </ionic-timepicker>
+    </label>
+    <label class="item item-input" name="entry-weight">
+        <span class="input-label micon micon-newentry-weight">
+          <!-- Gewicht (kg) -->
+        </span>
+        <input type="number" step="any" name="weight" ng-model="entry.weight"> kg &nbsp;
+    </label>
+    <label class="item item-input" name="entry-selfcheck">
+        <span class="input-label">
+          Wie fühle ich mich:
+        </span>
+    </label>
+    <div class="button-bar">
+        <a class="button button-stable button-icon"
+          ng-class="{true: 'button-active', false: ''}[entry.selfcheck==1]"
+          ng-click="entry.selfcheck=1">
+          <span class="icon-sad"></span></a>
+        <a class="button button-stable button-icon"
+          ng-class="{true: 'button-active', false: ''}[entry.selfcheck==2]"
+          ng-click="entry.selfcheck=2">
+          <span class="icon-neutral"></span></a>
+        <a class="button button-stable button-icon"
+          ng-class="{true: 'button-active', false: ''}[entry.selfcheck==3]"
+          ng-click="entry.selfcheck=3">
+          <span class="icon-smile"></span></a>
+    </div>
+    <label class="item item-input">
+        <span class="input-label">
+          Was ich sonst noch mitteilen möchte:
+        </span>
+    </label>
+    <div class="padding form-comment">
+        <textarea ng-model="entry.comment" rows="3" name="comment" placeholder=""></textarea>
+    </div>
+    <button type="submit" class="button button-stable button-block">Speichern</button>
+  </form>
+</ion-content>
+</ion-modal-view>

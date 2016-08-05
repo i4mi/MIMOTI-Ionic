@@ -1,0 +1,12 @@
+{
+  "name": "MIMOTI",
+  "app_id": "3eafcd01",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

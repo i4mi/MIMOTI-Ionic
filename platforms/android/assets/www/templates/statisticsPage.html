@@ -1,0 +1,39 @@
+<ion-view title="Verlauf">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" icon="ion-plus" ng-click="newEntry()">+</button>
+  </ion-nav-buttons>
+  <ion-content overflow-scroll="true" padding="false" class="has-header" style="padding-top:25px">
+    <date-line-graph
+      chart-id="stepchart"
+      data="dataStep"
+      responsive="true"
+      showLegend="false"
+      dateformat="%d.%m.%Y"
+      height="150"
+      duration="0"
+      tooltip="false"
+      guide="false"></date-line-graph>
+    <date-line-graph
+      chart-id="weigchart"
+      data="dataWeig"
+      responsive="true"
+      showLegend="false"
+      dateformat="%d.%m.%Y"
+      height="150"
+      duration="0"
+      ylabel="kg"
+      tooltip="false"
+      guide="false"></date-line-graph>
+    <date-line-graph
+      chart-id="condchart"
+      data="dataCond"
+      responsive="true"
+      showLegend="false"
+      dateformat="%d.%m.%Y"
+      height="150"
+      duration="0"
+      tooltip="false"
+      moodgraph="true"
+      guide="false"></date-line-graph>
+  </ion-content>
+</ion-view>

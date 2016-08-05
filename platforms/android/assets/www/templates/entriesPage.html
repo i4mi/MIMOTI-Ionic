@@ -1,0 +1,39 @@
+<ion-view title="Alle Einträge">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" icon="ion-plus" ng-click="newEntry()">+</button>
+  </ion-nav-buttons>
+  <ion-content overflow-scroll="true" padding="true" class="has-header entry-list">
+    <ion-list
+      can-swipe="listCanSwipe">
+      <ion-item
+        ng-repeat="entry in entries | orderBy:'-date'"
+        ng-click="fullComment(entry)"
+        class="card stable-bg">
+        <p>
+          {{entry.date | date:'dd.MM.yyyy HH:mm'}}
+        </p>
+        <h2>
+          Gewicht:
+          <span ng-if="entry.weight">{{entry.weight}} kg</span>
+          <span ng-if="!entry.weight" class="micon micon-noentry"></span>
+          Wohlbefinden:
+          <span ng-if="entry.selfcheck>0">
+            <span class="item-image icon-sad"
+              ng-if="entry.selfcheck==1"></span>
+            <span class="item-image icon-neutral"
+              ng-if="entry.selfcheck==2"></span>
+            <span class="item-image icon-smile"
+              ng-if="entry.selfcheck==3"></span>
+          </span>
+          <span ng-if="!entry.selfcheck" class="micon micon-noentry"></span>
+        </h2>
+        <p class="comment"
+          ng-if="entry.comment">
+          {{entry.comment}}
+        </p>
+        <ion-option-button
+          ng-click="invalidateEntry(entry)">Löschen</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

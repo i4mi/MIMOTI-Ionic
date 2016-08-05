@@ -1,0 +1,31 @@
+<ion-view title="Login">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+      <div class="loginprogress" ng-class="{ 'hide': showLoginForm }">
+        <center>
+          <img src="img/splash.png" width="90%">
+          <p>Anmeldungsversuch, bitte warten...</p>
+          <button class="button button-stable button-block" ng-click="cancelLogin()">Abbrechen</button>
+        </center>
+      </div>
+      <form class="list" novalidate ng-class="{ 'hide': ! showLoginForm }">
+        <center><img src="img/splash.png" height="160px"></center>
+        <label class="item item-input" name="entry-date">
+            <span class="input-label">Email Adresse:</span>
+            <input type="email" ng-model="settings.midata.usermail" placeholder="max.mustermann@email.com">
+        </label>
+        <label class="item item-input" name="entry-weight">
+            <span class="input-label">Kennwort:</span>
+            <input type="{{inputPasswordType}}" ng-model="settings.midata.password" placeholder="..................">
+            <div class="reveal">
+                <!-- <span class="input-label">Anzeigen</span> -->
+                <ion-checkbox ng-click="toggleRevealPassword()"><i class="icon ion-eye"></i></ion-checkbox>
+            </div>
+        </label>
+        <!-- <label class="item item-input" name="entry-server">
+            <span class="input-label">Server Adresse:</span>
+            <input type="text" ng-model="settings.midata.server">
+        </label> -->
+        <button class="button button-stable button-block" ng-click="submitLogin()">Verbinden</button>
+      </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,154 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+$RobotoDraftFontPath: "../lib/robotodraft/fonts";
+$RobotoDraftFontName: "RobotoDraft";
+$RobotoDraftFontVersion: "1.0.0";
+
+@import "www/lib/robotodraft/sass/robotodraft.scss";
+
+.button-active { background: $energized !important; }
+
+ion-header-bar .button-clear { color: black !important; }
+ion-modal-view .button-clear { margin-top: -5px !important; }
+
+.button.timePickerArrows { padding: 0px; }
+
+.reveal { position: relative; margin-left: -70px; }
+
+.entry-list {
+	.button-icon { margin-left: 20px; }
+	.item h2 { font-size: 14px; }
+}
+
+.micon {
+	display: inline-block;
+	width: 1.5em;
+	height: 1.2em;
+	line-height: 1.8em;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.micon-textlogo {
+	background-image: url('../img/logotext.jpg');
+	height: 4em; width: 15em;
+}
+.micon-noentry {
+	background-image: url('../img/icons/noEntry.png');
+	background-position: 50% 80%;
+}
+.micon-newentry-date {
+	background-image: url('../img/icons/dateNewEntry.png'); }
+.micon-newentry-time {
+	background-image: url('../img/icons/timeNewEntry.png'); }
+.micon-newentry-weight {
+	background-image: url('../img/icons/weightNewEntry.png'); }
+.micon-reminder {
+	background-image: url('../img/icons/infoReminder.png'); }
+.micon-phone {
+	background-image: url('../img/icons/contactPhone.png'); }
+.micon-mail {
+	background-image: url('../img/icons/contactMail.png'); }
+
+// Entry form
+.new-entry {
+	.form-comment {
+		padding-top: 0px !important;
+	}
+	textarea {
+		width: 100%;
+		border: 1px solid #bbb;
+		padding: 4px;
+	}
+	.button-icon > span {
+		font-size: 200%;
+		line-height: 1.6em;
+	}
+}
+
+.date-overlay { display: none; }
+
+.platform-android {
+	.date-overlay {
+			display: inline-block;
+			position: absolute;
+			margin-top: 0.6em;
+	}
+	.date-input {
+			opacity: 0;
+			z-index: 2;
+	}
+}
+
+// fix ABBRECHEN button in timepicker
+.popup-buttons button.ng-binding:nth-child(1) {
+  min-width: 10em;
+}
+
+// Custom font pack
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?9cjn53');
+    src:    url('fonts/icomoon.eot?9cjn53#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?9cjn53') format('truetype'),
+        url('fonts/icomoon.woff?9cjn53') format('woff'),
+        url('fonts/icomoon.svg?9cjn53#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-smile:before {
+    content: "\e900";
+}
+.icon-sad:before {
+    content: "\e901";
+}
+.icon-neutral:before {
+    content: "\e902";
+}
+
+form .username {
+    width: 94%;
+    margin: 1em 2em 1em 1em;
+    display: block;
+    border: 1px solid #ccc;
+    background: #eee;
+		color: black;
+    padding: .4em;
+}

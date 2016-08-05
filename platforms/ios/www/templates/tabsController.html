@@ -1,0 +1,13 @@
+<ion-view title="Tabs Controller">
+    <ion-tabs class="tabs-stable tabs-icon-bottom">
+        <ion-tab title="Verlauf" icon="ion-arrow-graph-up-right" href="#/page1/page-stats" on-select="navigateStats()">
+            <ion-nav-view name="tab1"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Alle Einträge" icon="ion-ios-list-outline" href="#/page1/page-entries" on-select="navigateEntries()">
+            <ion-nav-view name="tab2"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Infos" icon="ion-information-circled" href="#/page1/page-setup">
+            <ion-nav-view name="tab3"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

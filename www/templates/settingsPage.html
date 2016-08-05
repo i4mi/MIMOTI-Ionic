@@ -1,0 +1,49 @@
+<ion-view title="Infos">
+    <ion-nav-buttons side="right">
+      <button class="button button-clear" icon="ion-plus" ng-click="newEntry()">+</button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+      <form class="list" novalidate>
+        <div class="item item-divider">
+          Midata Benutzername
+        </div>
+          <input disabled class="username" value="{{ settings.midata.usermail }}">
+
+        <div class="item item-divider">
+          Erinnerungen
+        </div>
+          <label class="item item-input" name="entry-active">
+              <ion-checkbox ng-model="settings.notify.active" ng-click="updateNotifications">
+                Erinnerungen aktivieren</ion-checkbox>
+              <span class="micon micon-reminder"></span>
+          </label>
+          <label class="item item-input" name="entry-date">
+              <span class="input-label">Erinnerungszeitpunkt:</span>
+              <ionic-timepicker input-obj="timePickerObject">
+                  <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+                  <input type="text"
+                    ng-model="settings.notify.time"
+                    ng-disabled="!settings.notify.active"
+                    ng-focus="blurInput($event)"></input>
+              </ionic-timepicker>
+          </label>
+
+        <div class="item item-divider">
+          Kontakt
+        </div>
+          <center>
+            <h4 style="text-align:right">
+              <span>
+                <span class="micon micon-phone"></span>
+                <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+              </span><br>
+              <span class="micon micon-mail"></span>
+                <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+            </h4>
+            <span class="micon micon-textlogo"></span>
+            <p>{{ contact.info }}</p>
+          </center>
+
+      </form>
+    </ion-content>
+</ion-view>
